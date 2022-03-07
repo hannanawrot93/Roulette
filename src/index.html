@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r71/three.js"></script>
+    <script src="src/js/lib/three.min.js"></script>
+    <script src="src/js/lib/countdown.js"></script>
+    <script src="src/js/lib/countdown.min.js"></script>
+    <link rel="stylesheet" href="/src/css/style.css">
+    <script src="//cdn.webrtc-experiment.com/RTCMultiConnection.js"></script>
+    <script src="//cdn.webrtc-experiment.com/getMediaElement.js"></script>
+
+
+    <script id="vertShader0" type="shader">
+        varying vec2 vUv;
+        void main() {
+            vUv = uv;
+            gl_Position = projectionMatrix *
+                          modelViewMatrix * vec4(position, 1.0 );
+        }
+
+
+    </script>
+    <script id="fragShader0" type="shader">
+        precision highp float;
+        varying vec2 vUv;
+        vec4 color;
+        vec4 outColor;
+        uniform sampler2D tex;
+        uniform int filter;
+
+        void main(void) {
+            if(filter == 0){
+                gl_FragColor = texture2D(tex, vUv);
+            }
+            if(filter == 1){
+                color = texture2D(tex, vUv);
+                gl_FragColor = texture2D(tex, vUv);
+                outColor.r = (color.r * 0.393) + (color.g * 0.769) + (color.b * 0.189);
+                outColor.g = (color.r * 0.349) + (color.g * 0.686) + (color.b * 0.168);
+                outColor.b = (color.r * 0.272) + (color.g * 0.534) + (color.b * 0.131);
+                gl_FragColor.r = outColor.r;
+                gl_FragColor.g = outColor.g;
+                gl_FragColor.b = outColor.b;
+            }
+
+        }
+
+
+    </script>
+    <script id="vertShader1" type="shader">
+        varying vec2 vUv;
+        void main() {
+            vUv = uv;
+            gl_Position = projectionMatrix *
+                          modelViewMatrix * vec4(position, 1.0 );
+        }
+
+
+    </script>
+    <script id="fragShader1" type="shader">
+        precision highp float;
+        varying vec2 vUv;
+        vec4 color;
+        vec4 outColor;
+        uniform sampler2D tex;
+        uniform int filter;
+
+        void main(void) {
+            if(filter == 0){
+                gl_FragColor = texture2D(tex, vUv);
+            }
+            if(filter == 1){
+                color = texture2D(tex, vUv);
+                gl_FragColor = texture2D(tex, vUv);
+                outColor.r = (color.r * 0.393) + (color.g * 0.769) + (color.b * 0.189);
+                outColor.g = (color.r * 0.349) + (color.g * 0.686) + (color.b * 0.168);
+                outColor.b = (color.r * 0.272) + (color.g * 0.534) + (color.b * 0.131);
+                gl_FragColor.r = outColor.r;
+                gl_FragColor.g = outColor.g;
+                gl_FragColor.b = outColor.b;
+            }
+
+        }
+
+
+    </script>
+    <script id="vertShader2" type="shader">
+        varying vec2 vUv;
+        void main() {
+            vUv = uv;
+            gl_Position = projectionMatrix *
+                          modelViewMatrix * vec4(position, 1.0 );
+        }
+
+
+    </script>
+    <script id="fragShader2" type="shader">
+        precision highp float;
+        varying vec2 vUv;
+        vec4 color;
+        vec4 outColor;
+        uniform sampler2D tex;
+        uniform int filter;
+
+        void main(void) {
+            if(filter == 0){
+                gl_FragColor = texture2D(tex, vUv);
+            }
+            if(filter == 1){
+                color = texture2D(tex, vUv);
+                gl_FragColor = texture2D(tex, vUv);
+                outColor.r = (color.r * 0.393) + (color.g * 0.769) + (color.b * 0.189);
+                outColor.g = (color.r * 0.349) + (color.g * 0.686) + (color.b * 0.168);
+                outColor.b = (color.r * 0.272) + (color.g * 0.534) + (color.b * 0.131);
+                gl_FragColor.r = outColor.r;
+                gl_FragColor.g = outColor.g;
+                gl_FragColor.b = outColor.b;
+            }
+
+        }
+
+
+    </script>
+    <script id="vertShader3" type="shader">
+        varying vec2 vUv;
+        void main() {
+            vUv = uv;
+            gl_Position = projectionMatrix *
+                          modelViewMatrix * vec4(position, 1.0 );
+        }
+
+
+    </script>
+    <script id="fragShader3" type="shader">
+        precision highp float;
+        varying vec2 vUv;
+        vec4 color;
+        vec4 outColor;
+        uniform sampler2D tex;
+        uniform int filter;
+
+        void main(void) {
+            if(filter == 0){
+                gl_FragColor = texture2D(tex, vUv);
+            }
+            if(filter == 1){
+                color = texture2D(tex, vUv);
+                gl_FragColor = texture2D(tex, vUv);
+                outColor.r = (color.r * 0.393) + (color.g * 0.769) + (color.b * 0.189);
+                outColor.g = (color.r * 0.349) + (color.g * 0.686) + (color.b * 0.168);
+                outColor.b = (color.r * 0.272) + (color.g * 0.534) + (color.b * 0.131);
+                gl_FragColor.r = outColor.r;
+                gl_FragColor.g = outColor.g;
+                gl_FragColor.b = outColor.b;
+            }
+
+        }
+
+    </script>
+    <script id="vertShader4" type="shader">
+        varying vec2 vUv;
+        void main() {
+            vUv = uv;
+            gl_Position = projectionMatrix *
+                          modelViewMatrix * vec4(position, 1.0 );
+        }
+
+
+    </script>
+    <script id="fragShader4" type="shader">
+        precision highp float;
+        varying vec2 vUv;
+        vec4 color;
+        vec4 outColor;
+        uniform sampler2D tex;
+        uniform int filter;
+
+        void main(void) {
+            if(filter == 0){
+                gl_FragColor = texture2D(tex, vUv);
+            }
+            if(filter == 1){
+                color = texture2D(tex, vUv);
+                gl_FragColor = texture2D(tex, vUv);
+                outColor.r = (color.r * 0.393) + (color.g * 0.769) + (color.b * 0.189);
+                outColor.g = (color.r * 0.349) + (color.g * 0.686) + (color.b * 0.168);
+                outColor.b = (color.r * 0.272) + (color.g * 0.534) + (color.b * 0.131);
+                gl_FragColor.r = outColor.r;
+                gl_FragColor.g = outColor.g;
+                gl_FragColor.b = outColor.b;
+            }
+
+        }
+
+
+    </script>
+    <script id="vertShader5" type="shader">
+        varying vec2 vUv;
+        void main() {
+            vUv = uv;
+            gl_Position = projectionMatrix *
+                          modelViewMatrix * vec4(position, 1.0 );
+        }
+
+
+    </script>
+    <script id="fragShader5" type="shader">
+        precision highp float;
+        varying vec2 vUv;
+        vec4 color;
+        vec4 outColor;
+        uniform sampler2D tex;
+        uniform int filter;
+
+        void main(void) {
+            if(filter == 0){
+                gl_FragColor = texture2D(tex, vUv);
+            }
+            if(filter == 1){
+                color = texture2D(tex, vUv);
+                gl_FragColor = texture2D(tex, vUv);
+                outColor.r = (color.r * 0.393) + (color.g * 0.769) + (color.b * 0.189);
+                outColor.g = (color.r * 0.349) + (color.g * 0.686) + (color.b * 0.168);
+                outColor.b = (color.r * 0.272) + (color.g * 0.534) + (color.b * 0.131);
+                gl_FragColor.r = outColor.r;
+                gl_FragColor.g = outColor.g;
+                gl_FragColor.b = outColor.b;
+            }
+
+        }
+
+
+    </script>
+    <title>Roulette</title>
+</head>
+
+<body onmousemove="mouseMove(event)" onmouseup="mouseUp(event)">
+<div class="container">
+    <div class="jumbotron">
+        <h1>Roulette</h1>
+    </div>
+    <div id="test"></div>
+</div>
+
+<video id="vid0" height=200 width=200 preload="auto" controls hidden></video>
+<video id="vid1" height=200 width=200 preload="auto" controls hidden></video>
+<video id="vid2" height=200 width=200 preload="auto" controls hidden></video>
+<video id="vid3" height=200 width=200 preload="auto" controls hidden></video>
+<video id="vid4" height=200 width=200 preload="auto" controls hidden></video>
+<video id="vid5" height=200 width=200 preload="auto" controls hidden></video>
+<canvas id="output0" hidden></canvas>
+<canvas id="backcanvas0" hidden></canvas>
+<canvas id="output1" hidden></canvas>
+<canvas id="backcanvas1" hidden></canvas>
+<canvas id="output2" hidden></canvas>
+<canvas id="backcanvas2" hidden></canvas>
+<canvas id="output3" hidden></canvas>
+<canvas id="backcanvas3" hidden></canvas>
+<canvas id="output4" hidden></canvas>
+<canvas id="backcanvas4" hidden></canvas>
+<canvas id="output5" hidden></canvas>
+<canvas id="backcanvas5" hidden></canvas>
+<div id="main" class="container">
+    <div id="buttons">
+        <fb:login-button id='login' scope="public_profile,email" onlogin="checkLoginState();" size="xlarge"
+                         auto_logout_link=true></fb:login-button>
+        <button id='start' type='button' class="btn btn-success btn-lg" hidden>Start!</button>
+    </div>
+    <div id="cube" onmousedown="mouseDown(event)" hidden>
+        <div id="effects" class="btn-group-vertical" role="group">
+            <a href="#" id="normal" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-picture"
+                                                                         aria-hidden="true"></span>
+                </span></a>
+            <button href="#" id="sepia" class="btn btn-default btn-lg"><span id="sepiag"
+                                                                             class="glyphicon glyphicon-picture"
+                                                                             aria-hidden="true"></span></button>
+            <button href="#" id="motionTracking" class="btn btn-default btn-lg"><span
+                    class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span></button>
+        </div>
+    </div>
+
+
+    <div id="chat" hidden>
+        <div class="container">
+            <div class="form-group" id="message">
+                <label for="messageInput">Your message:</label>
+                <input type="text" class="form-control" id="messageInput" placeholder="Enter message">
+            </div>
+            <div id="messageButtons">
+                <button id="send" type='button' class="col-md-offset-3 col-md-2 btn btn-primary">Send!</button>
+                <button id='stop' type='button' class="col-md-offset-1 col-md-2 btn btn-danger">Stop!</button>
+            </div>
+        </div>
+        <div class="container">
+            <div id="messages">
+                <h6>Last Message:</h6>
+
+                <div id='lastmsg'>
+                    <button id="slide" type='button' class="btn btn-primary btn-block">Chat
+                        <span id='slideSpan' class="glyphicon glyphicon-triangle-bottom"></span>
+                    </button>
+                    <div id='messagesDiv'></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<footer>
+</footer>
+<script type="text/javascript" src='/src/js/lib/ccv.js'></script>
+<script type="text/javascript" src='/src/js/lib/face.js'></script>
+<script type="text/javascript" src='/src/js/webrtc.js'></script>
+<script type="text/javascript" src='/src/js/script.js'></script>
+<script type="text/javascript" src='/src/js/facebookLogin.js'></script>
+<script type="text/javascript" src='/src/js/webgl.js' defer="defer"></script>
+</body>
+
+</html>

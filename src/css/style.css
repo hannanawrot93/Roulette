@@ -1,0 +1,87 @@
+.jumbotron h1 {
+    display: block;
+    margin: auto;
+    text-align: center;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+#login {
+    display: block;
+    margin: auto;
+    height: 60px;
+    width: 150px;
+}
+
+#messages {
+    display: block;
+    margin: auto;
+    padding: 20px;
+}
+#message {
+    padding: 20px;
+}
+#start {
+    display: block;
+    margin: auto;
+    height: 60px;
+    width: 200px;
+}
+#effects {
+    display: none;
+}
+#messagesDiv {
+    background-color: azure;
+    width: 100%;
+    border-radius: 10px;
+    border: 2px solid #46b8da;
+    padding: 20px;
+    display: none;
+}
+.msg {
+    background-color: #ffffff;
+    width: 100%;
+    border-radius: 7px;
+    border: 1px solid #46b8da;
+    padding: 15px;
+    margin-top: 15px;
+}
+.name {
+    font-weight: bold;
+}
+.timeinterval {
+    font-size: 12px;
+    color: #888888;
+    margin-left: 10px;
+}
+.jumbotron {
+    height: 250px;
+    background-color: #337ab7;
+    padding: 60px;
+}
+
+#buttons {
+    padding: 60px;
+}
+
+body {
+    background-color: #d9edf7;
+}
+#cube {
+    display: block;
+    margin: 0 auto;
+}
+#sepiag {
+    color: #c0a16b;
+}
+#effects {
+   position: absolute;
+    z-index: 4;
+    padding: 40px;
+}
+#slide{
+    margin-top: 20px;
+}
+canvas{
+    background-color: #ffffff;
+}

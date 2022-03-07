@@ -1,0 +1,20 @@
+{
+  "name": "roulette",
+  "version": "1.0.0",
+  "description": "",
+  "main": "backend/server.js",
+  "dependencies": {
+    "websocket": "^1.0.18"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/hania1441/roulette.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/hania1441/roulette#readme"
+}
